@@ -5,6 +5,10 @@
     "lib": [
       "es2020"
     ],
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -19,9 +23,19 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "baseUrl": ".",
+    "paths": {
+      "@constructs/*": ["lib/constructs/*"],
+      "@lambda-handlers/*": ["functions/handlers/*"],
+      "@lambda-libs/*": ["functions/libs/*"]
+    },
     "typeRoots": [
       "./node_modules/@types"
     ]
+  },
+  "include": ["bin", "lib", "functions"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   },
   "exclude": [
     "node_modules",
